@@ -3,23 +3,29 @@
 <title>Example</title>
 <!--javascript here-->
 <style type= "text/css">
+
 #messagebox{
-    height:400px;
+    resize: none
 }
 #textbox{
-  height:60px;
+
+    height: 30px
 }
 </style>
+    
 </head>
-<body>
-<form >
-  Messages:<br>
-  <input id="messagebox" type="text" name="Messeges" size="80"  ><br>
-</form>
+  <body>
+    <form>
+        Messages:<br>
+        <textarea  id="messagebox" type="text" name="textarea" cols="50" rows="25">
+        </textarea>
+    </form>
+
 <form action="dbinsert.php" method="get" >
  My text:<br>
-  <input id="textbox" type="text" name="your_text" size ="80"  >
-<input type="submit">
-</form>
-</body>
+  <input id="textbox" type="text" name="your_text">
+    </textarea>
+   <input type="submit">
+  </form>
+ </body>
 </html>
