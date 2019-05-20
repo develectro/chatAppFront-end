@@ -2,13 +2,34 @@
 <head>
 <title>Example</title>
 <!--javascript here-->
-<style type= "text/css">
+<script type = "text/javascript">
+//this script uses ajax object to append php's echo to the message box whome id is #messagebox
+var ajaxObject = XMLHttpRequest();
 
+function fun(str){
+    if (str == "") {
+    document.getElementById("messagebox").innerHTML = "";
+    return;
+  }
+}
+ajaxObject.onreadystatechange = function(){
+    if(this.readyState == 4 && this.status == 200){
+        //Note: 4 means request finished and response ready.
+        //200 means OK
+        document.getElementById("messagebox").innerHTML = this.responseText;
+    }
+//ajax connection establishment:
+ajaxObject.open("GET","~/dbinsert.php", true); // true necessary to be asynchronous (safety)
+ajaxObject.send();
+/*MAKE SURE OF YOUR URL*/
+}
+
+</script>
+<style type= "text/css">
 #messagebox{
     resize: none
 }
 #textbox{
-
     height: 30px
 }
 </style>
