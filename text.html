@@ -1,21 +1,9 @@
 <html>
 <head>
 <title>Example</title>
-<!--javascript here-->
-<script type = "text/javascript">
-//this script uses ajax object to append php's echo to the message box whome id is #messagebox
-function loadmsg() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-     document.getElementById("messagebox").innerHTML = this.responseText;
-    }
-  };
-  xhttp.open("GET", "refrash.php", true);
-  xhttp.send();
-}
 
-</script>
+<script src="sendData.js"> </script>
+<script scr="fetchData.js"> </script>
 <style type= "text/css">
 #messagebox{
     resize: none
@@ -39,6 +27,8 @@ function loadmsg() {
     </textarea>
    <input type="submit">
   </form>
-<button type="button" onclick="loadmsg()">load massage</button>
+<button type="button" onclick="loadMsg()">load massage</button>
+<button type="button" onclick="sendMsg()">send!</button>
+
  </body>
 </html>
