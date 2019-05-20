@@ -4,24 +4,15 @@
 <!--javascript here-->
 <script type = "text/javascript">
 //this script uses ajax object to append php's echo to the message box whome id is #messagebox
-var ajaxObject = XMLHttpRequest();
-
-function fun(str){
-    if (str == "") {
-    document.getElementById("messagebox").innerHTML = "";
-    return;
-  }
-}
-ajaxObject.onreadystatechange = function(){
-    if(this.readyState == 4 && this.status == 200){
-        //Note: 4 means request finished and response ready.
-        //200 means OK
-        document.getElementById("messagebox").innerHTML = this.responseText;
+function loadmsg() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+     document.getElementById("messagebox").innerHTML = this.responseText;
     }
-//ajax connection establishment:
-ajaxObject.open("GET","~/dbinsert.php", true); // true necessary to be asynchronous (safety)
-ajaxObject.send();
-/*MAKE SURE OF YOUR URL*/
+  };
+  xhttp.open("GET", "refrash.php", true);
+  xhttp.send();
 }
 
 </script>
@@ -42,11 +33,12 @@ ajaxObject.send();
         </textarea>
     </form>
 
-<form action="dbinsert.php" method="get" >
+<form action="dbinsert.php" method="post" target="_blank" >
  My text:<br>
   <input id="textbox" type="text" name="your_text">
-    </input>
+    </textarea>
    <input type="submit">
   </form>
+<button type="button" onclick="loadmsg()">load massage</button>
  </body>
 </html>
