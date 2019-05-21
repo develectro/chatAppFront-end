@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <title>Example</title>
@@ -5,30 +6,48 @@
 <script src="sendData.js"> </script>
 <script scr="fetchData.js"> </script>
 <style type= "text/css">
+
 #messagebox{
-    resize: none
+    text-align: left;
+    font-family: comoic;
+    resize: none;
 }
 #textbox{
-    height: 30px
+    height: 30px;
 }
+.myDiv{
+
+height: 400px;
+width: 400px;
+  
+  /*DON'T DELETE THIS FOR FUTURE IMPROVEMENTS*/
+  /*height: 100px;
+  width: 100px;
+  position: absolute;
+  left: 50%;
+  margin-left: -50px;
+  top: 50%;
+  margin-top: -50px;*/
+}
+
 </style>
     
 </head>
-  <body>
-    <form>
+  <body background="http://webneel.com/wallpaper/sites/default/files/images/08-2018/1-nature-wallpaper-grass-hd.jpg">
+    <div class="myDiv">
+    <form >
         Messages:<br>
-        <textarea  id="messagebox" type="text" name="textarea" cols="50" rows="25">
-        </textarea>
+        <textarea  id="messagebox" type="text" name="textarea" cols="50" rows="25" readonly style="background-color: #a0ff76 "></textarea>
     </form>
 
-<form action="dbinsert.php" method="post" target="_blank" >
- My text:<br>
-  <input id="textbox" type="text" name="your_text">
-    </textarea>
-   <input type="submit">
-  </form>
-<button type="button" onclick="loadMsg()">load massage</button>
-<button type="button" onclick="sendMsg()">send!</button>
+    <form  action="dbinsert.php" method="post" target="_blank" >
+      My text:<br>
+       <input id="textbox" type="text" name="your_text">
+       <input type="submit">
+    </form>
+   <button type="button" onclick="loadMsg()">load massage</button>
+   <button type="button" onclick="sendMsg()">send!</button>
+    </div>
 
  </body>
 </html>
